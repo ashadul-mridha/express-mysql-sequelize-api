@@ -3,6 +3,7 @@ const cors = require('cors');
 
 //import all router
 const productRouter = require('./routers/productRouter');
+const reviewRouter = require('./routers/reviweRouter');
 
 const app = express();
 
@@ -17,6 +18,7 @@ app.use(express.urlencoded({extended: true}));
 
 //application router
 app.use('/api/product',productRouter)
+app.use('/api/review',reviewRouter)
 
 
 //testing api

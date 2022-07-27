@@ -1,6 +1,7 @@
 const db = require('../models');
 //create main model
 const Product = db.products;
+const Review = db.reviews;
 
 
 //create product 
@@ -86,10 +87,28 @@ const deleteProuct = async (req,res) => {
     }
 }
 
+
+//get all data  with review useing has many relation
+const getProductWithReview = async (req,res) => {
+    try {
+        const products = await Product.findAll({
+            include:[{
+                model: Review
+            }],
+            where : {id : 1}
+        })
+        res.status(200).send(products);
+    } catch (error) {
+        const err = new Error(error.message);
+        // throw new err;        
+    }
+}
+
 module.exports = {
     addProduct,
     getAllProduct,
     getPublishedProduct,
+    getProductWithReview,
     getOneProuct,
     updateOneProuct,
     deleteProuct

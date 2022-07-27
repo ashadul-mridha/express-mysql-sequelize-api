@@ -5,6 +5,7 @@ const {
     addProduct,
     getAllProduct,
     getPublishedProduct,
+    getProductWithReview,
     getOneProuct,
     updateOneProuct,
     deleteProuct
@@ -16,6 +17,8 @@ router.post('/addProduct', addProduct);
 router.get('/allProduct' , getAllProduct);
 //get all pushlish products
 router.get('/allPublishedProduct' , getPublishedProduct);
+//get all pushlish products
+router.get('/allProductWithReview' , getProductWithReview);
 //get one single product
 router.get('/:id' , getOneProuct);
 //update one single product
